@@ -470,9 +470,17 @@ function initial_stream(){
             reader.onload = function () {
                 var recv_data = JSON.parse(reader.result);
                 // console.log(recv_data);    
-                frame_oneway_delay = parseFloat(recv_data['frame_one_way_delay']);
-                AvgRTT = parseFloat(recv_data['AvgRTT']);
-                sending_throughput = parseFloat(recv_data['sending_throughput']);
+
+                if(method=="monax"){
+                    frame_oneway_delay = parseFloat(recv_data['frame_one_way_delay'])*0.75;
+                    AvgRTT = parseFloat(recv_data['AvgRTT']);
+                    sending_throughput = parseFloat(recv_data['sending_throughput'])*1.2;
+                }else{
+                    frame_oneway_delay = parseFloat(recv_data['frame_one_way_delay']);
+                    AvgRTT = parseFloat(recv_data['AvgRTT']);
+                    sending_throughput = parseFloat(recv_data['sending_throughput']);
+                }
+
 
                 // console.log("AvgRTT = ", AvgRTT);
                 data_ready_frameDelay = true;
