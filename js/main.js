@@ -28,6 +28,10 @@ var timeLeftLabel = document.querySelector('#time-left');
 var timeLeftBar = document.querySelector('#time-left-bar');
 var timeSetBox = document.querySelector('#time-set');
 
+var TRACE_BASE = "./traces/bandwidth/";
+var bandwidth = [];
+var bandPointer = 2;
+
 
 connectBtn.disabled = false;
 startBtn.disabled = true;
@@ -49,6 +53,7 @@ var sending_throughput;
 var data_ready_frameDelay = false;
 var data_ready_rtt = false;
 var data_ready_throughput = false;
+var data_ready_bandwidth = false;
 
 var traces;
 var videos;
@@ -77,7 +82,7 @@ var running_timer;
 var connected = false;
 
 // 运行状态
-var runnning = false;
+var running = false;
 
 
 //实验倒计时
@@ -117,6 +122,16 @@ timeSetBox.onchange = function(event){
     // timeLeft = this.value;
 }
 
+function getTraceData(jsonPath) {
+    var request = new XMLHttpRequest();
+    request.open("get", jsonPath);
+    console.log(jsonPath);
+    request.send(null);
+    request.onload = function() {
+        var json = JSON.parse(request.responseText);
+        bandwidth = json["trace"];
+    }
+}
 
 connectBtn.onclick = function(event){
 
@@ -158,6 +173,8 @@ connectBtn.onclick = function(event){
             // console.log(method_select.options[method_select.selectedIndex].value)
             // console.log(traces[trace_select.options[trace_select.selectedIndex].value])
             mahimahi_trace = traces[trace_select.options[trace_select.selectedIndex].value];
+            var jsonPath = TRACE_BASE + mahimahi_trace.split(".")[0] + ".json";
+            getTraceData(jsonPath);
             use_trace = trace_enable.options[trace_enable.selectedIndex].value
             method = method_select.options[method_select.selectedIndex].value
             video = videos[video_select.options[video_select.selectedIndex].value];
@@ -273,10 +290,14 @@ trace_enable.onchange = function(){
     }
 }
 
+
+
 trace_select.onchange = function(){
     if(this.selectedIndex>-1){
         mahimahi_trace = traces[this.options[this.selectedIndex].value];
         console.log(mahimahi_trace);
+        var jsonPath = TRACE_BASE + mahimahi_trace.split(".")[0] + ".json";
+        getTraceData(jsonPath);
     }
 }
 
@@ -395,7 +416,7 @@ function initial_stream(){
         running_timer = setInterval(function(){
             if(timeLeft>1){
                 timeLeft-=1; 
-                console.log("time left: "+timeLeft);
+                // console.log("time left: "+timeLeft);
                 timeLeftLabel.innerHTML = Math.round((timeTotal-timeLeft)*100/timeTotal);
                 timeLeftBar.setAttribute("style","width: "+timeLeftLabel.innerHTML+"%;");
             }else{
@@ -457,6 +478,7 @@ function initial_stream(){
                 data_ready_frameDelay = true;
                 data_ready_rtt = true;
                 data_ready_throughput = true;
+                data_ready_bandwidth = true;
             }
         }
 
@@ -508,10 +530,26 @@ function stopRecording() {
 
 
 
+//bandwidth
+// var traces = [];
+// function getTraceData(jsonPath) {
+//     var request = new XMLHttpRequest();
+//     request.open("get", jsonPath);
+//     request.send(null);
+//     request.onload = function() {
+//     if(request.status == 200) {
+//     var json = JSON.parse(request.responseText);
+//     traces = json["trace"];
+// }
+
+// var jsonPath = "../traces/bandwidth/" + mahimahi_trace.split(".")[0] + ".json";
+// getTraceData(jsonPath);
+
+
+
 //charts
 
 update_interval = 1000;
-
 
 Highcharts.setOptions({
     global: {
@@ -805,12 +843,22 @@ var chart_bandwidth = Highcharts.chart('container_bandwidth', {
                                     chart = this;
                             // activeLastPointToolip(chart);
                             setInterval(function () {
-                                    if(data_ready_frameDelay){
+
+                                    if(data_ready_bandwidth){
                                         var x = (new Date()).getTime(); // 当前时间
-                                        var y = frame_oneway_delay;      
+
+                                        if(bandPointer<bandwidth.length){
+                                            var y = bandwidth[bandPointer];
+                                        }else{
+                                            bandPointer = 0;
+                                            var y = bandwidth[bandPointer];
+                                        }
+                                              
                                         series.addPoint([x, y], true, true);
                                         // activeLastPointToolip(chart);
-                                        data_ready_frameDelay = false;
+                                        // data_ready_frameDelay = false;
+                                        bandPointer+=1;
+                                        data_ready_bandwidth = false;
                                     }
 
                             }, update_interval);
