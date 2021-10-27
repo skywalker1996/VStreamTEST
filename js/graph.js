@@ -1,44 +1,43 @@
-
 Highcharts.setOptions({
     global: {
-            useUTC: false
+        useUTC: false
     }
 });
 
 function activeLastPointToolip(chart) {
     var points = chart.series[0].points;
-    chart.tooltip.refresh(points[points.length -1]);
+    chart.tooltip.refresh(points[points.length - 1]);
 }
 
 var chart = Highcharts.chart('container', {
     chart: {
-            type: 'spline',
-            marginRight: 5,
-            events: {
-                    load: function () {
-                            var series = this.series[0],
-                                    chart = this;
-                            activeLastPointToolip(chart);
-                            setInterval(function () {
-                                    var x = (new Date()).getTime(), // 当前时间
-                                        y = Math.random();      // 随机值
-                                    series.addPoint([x, y], true, true);
-                                    // activeLastPointToolip(chart);
-                            }, 1000);
-                    }
+        type: 'spline',
+        marginRight: 5,
+        events: {
+            load: function () {
+                var series = this.series[0],
+                    chart = this;
+                activeLastPointToolip(chart);
+                setInterval(function () {
+                    var x = (new Date()).getTime(), // 当前时间
+                        y = Math.random();      // 随机值
+                    series.addPoint([x, y], true, true);
+                    // activeLastPointToolip(chart);
+                }, 1000);
             }
+        }
     },
     title: {
-            text: '实时网络数据'
+        text: '实时网络数据'
     },
     xAxis: {
-            type: 'datetime',
-            tickPixelInterval: 150
+        type: 'datetime',
+        tickPixelInterval: 150
     },
     yAxis: {
-            title: {
-                    text: null
-            }
+        title: {
+            text: null
+        }
     },
     // tooltip: {
     //         formatter: function () {
@@ -48,22 +47,22 @@ var chart = Highcharts.chart('container', {
     //         }
     // },
     legend: {
-            enabled: false
+        enabled: false
     },
     series: [{
-            // name: '随机数据',
-            data: (function () {
-                    // 生成随机值
-                    var data = [],
-                            time = (new Date()).getTime(),
-                            i;
-                    for (i = -19; i <= 0; i += 1) {
-                            data.push({
-                                    x: time + i * 1000,
-                                    y: Math.random()
-                            });
-                    }
-                    return data;
-            }())
+        // name: '随机数据',
+        data: (function () {
+            // 生成随机值
+            var data = [],
+                time = (new Date()).getTime(),
+                i;
+            for (i = -19; i <= 0; i += 1) {
+                data.push({
+                    x: time + i * 1000,
+                    y: Math.random()
+                });
+            }
+            return data;
+        }())
     }]
 });

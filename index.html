@@ -5,17 +5,21 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <!-- <meta charset="utf-8"><link rel="icon" href="https://static.jianshukeji.com/highcharts/images/favicon.ico"> -->
     <title>Realtime communication platform</title>
-    <link rel="stylesheet" href="./css/main.css?v=0.1" />
+    <link rel="stylesheet" href="./css/main.css?v=0.1"/>
 
     <script src="./node_modules/jquery/dist/jquery.min.js"></script>
     <!-- 最新版本的 Bootstrap 核心 CSS 文件 -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-      
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css"
+          integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
     <!-- 可选的 Bootstrap 主题文件（一般不用引入） -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
-      
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap-theme.min.css"
+          integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
     <!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/js/bootstrap.min.js"
+            integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
+            crossorigin="anonymous"></script>
 
     <script src="./js/highcharts.js"></script>
     <script src="./js/exporting.js"></script>
@@ -24,243 +28,248 @@
 </head>
 
 <body>
- 
-    <nav class="navbar navbar-default" role="navigation">
-      <div class="navbar-header">
-           <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-              <span class="sr-only">Toggle navigation</span>
-              <span class="icon-bar"></span>
-              <span class="icon-bar"></span>
-              <span class="icon-bar"></span></button>
-              <a class="navbar-brand" style="font-size: 35px;" href="#"><strong>Iotdata Lab</strong></a>
-      </div>
-      
-      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-          <ul class="nav navbar-nav" style="font-size: 25px;">
-              <li>
-                   <a href="#">关于VStreamTEST</a>
-              </li>
-              <li>
-                  <a href="#">率控制算法</a>
-              </li>
 
-              <li>
-                  <a href="#">InfluxDB监控</a>
-              </li>
+<nav class="navbar navbar-default" role="navigation">
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span></button>
+        <a class="navbar-brand" style="font-size: 35px;" href="#"><strong>Iotdata Lab</strong></a>
+    </div>
 
-              <li class="Research Study" >
-                  <a href="#" class="dropdown-toggle" data-toggle="dropdown">Research Study<strong class="caret">
-                  </strong></a>
-                  <ul class="dropdown-menu" style="font-size: 20px;">
-                      <li>
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+        <ul class="nav navbar-nav" style="font-size: 25px;">
+            <li>
+                <a href="#">关于VStreamTEST</a>
+            </li>
+            <li>
+                <a href="#">率控制算法</a>
+            </li>
+
+            <li>
+                <a href="#">InfluxDB监控</a>
+            </li>
+
+            <li class="Research Study">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Research Study<strong class="caret">
+                </strong></a>
+                <ul class="dropdown-menu" style="font-size: 20px;">
+                    <li>
                         <a href="#">Research Paper</a>
-                      </li>
-                      <li>
-                           <a href="#">Conference Talk</a>
-                      </li>
-                      <li>
-                           <a href="#">Experiment Results</a>
-                      </li>
-                      <li>
-                           <a href="#">Data Description</a>
-                      </li>
-                  </ul>
-              </li>
-          </ul>
-          
-          <ul class="nav navbar-nav navbar-right">
-              <li class="dropdown" style="font-size: 20px;">
-                   <a href="#" class="dropdown-toggle" data-toggle="dropdown">联系我们<strong class="caret"></strong></a>
-                  <ul class="dropdown-menu" style="font-size: 20px;">
-                      <li>
-                           <a href="#">Email</a>
-                      </li>
-                      <li>
-                           <a href="#">Telephone</a>
-                      </li>
-                      <li>
-                           <a href="#">Address</a>
-                      </li>
-                  </ul>
-              </li>
-          </ul>
-      </div>
-      
-    </nav>
-    
+                    </li>
+                    <li>
+                        <a href="#">Conference Talk</a>
+                    </li>
+                    <li>
+                        <a href="#">Experiment Results</a>
+                    </li>
+                    <li>
+                        <a href="#">Data Description</a>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+
+        <ul class="nav navbar-nav navbar-right">
+            <li class="dropdown" style="font-size: 20px;">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown">联系我们<strong class="caret"></strong></a>
+                <ul class="dropdown-menu" style="font-size: 20px;">
+                    <li>
+                        <a href="#">Email</a>
+                    </li>
+                    <li>
+                        <a href="#">Telephone</a>
+                    </li>
+                    <li>
+                        <a href="#">Address</a>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+
+</nav>
+
 <!--       <div id='headerDiv' >
         <h1 style="font-size: 40px;">VStreamTEST - 实时视频流传输实验平台</h1>
         <h2 style="font-size: 30px;">Real-time video streaming experiment platform</h2>
       </div> -->
-    <div class="jumbotron" id='headerDiv'>
-      <div class="container">
+<div class="jumbotron" id='headerDiv'>
+    <div class="container">
         <h1>VStreamTEST 实时视频流传输实验平台</h1>
         <p style="font-size: 25px;">Real-time video streaming experiment platform</p>
         <p><a class="btn btn-primary btn-lg" href="#" role="button" style="font-size: 22px;">Learn more</a></p>
-      </div>  
     </div>
+</div>
 
-    <div id='main-page'>
+<div id='main-page'>
 
-      <div id=main-block>
+    <div id=main-block>
         <div id="videosDiv">
-          <canvas id="canvas" width="1280" height="720"></canvas>
+            <canvas id="canvas" width="1280" height="720"></canvas>
         </div>
 
         <div id="control-panel">
             <div id='stateDiv'>
-              <ul class="list-group">
-                <li class="list-group-item">
-                  <div class="alert alert-success" role="alert" id="info"></div>
-                </li>
+                <ul class="list-group">
+                    <li class="list-group-item">
+                        <div class="alert alert-success" role="alert" id="info"></div>
+                    </li>
 
-                <li class="list-group-item">
-                  <div id='agent-div' class="list-group-div">
-                    <div class="input-group input-group-lg" id="agent-ip-div">
-                      <span class="input-group-addon" id="basic-addon1">Agent IP</span>
-                      <input type="text" class="form-control" placeholder="ip address" aria-describedby="basic-addon1" id="agent-ip" value="192.168.0.125">
+                    <li class="list-group-item">
+                        <div id='agent-div' class="list-group-div">
+                            <div class="input-group input-group-lg" id="agent-ip-div">
+                                <span class="input-group-addon" id="basic-addon1">Agent IP</span>
+                                <input type="text" class="form-control" placeholder="ip address"
+                                       aria-describedby="basic-addon1" id="agent-ip" value="192.168.0.125">
+                            </div>
+                            <span style="font-size: 30px;"> Agent 连接状态:  </span>
+                            <span style="margin-left: 20px; font-size: 25px;" class="label label-default"
+                                  id='connect-state'>未连接</span>
+                            <button type="button" class="control-btn btn btn-primary" id="connect-btn">Connect</button>
+                            <button type="button" class="control-btn btn btn-danger" id="clean-btn">清理进程</button>
+                        </div>
+                    </li>
+                    <li class="list-group-item">
+                        <div id='para-div' class="list-group-div">
+                            <span style="font-size: 30px;">编码器：</span>
+                            <span class="label label-primary" style="font-size: 25px;" id='codec'>/</span>
+
+                            <span style="margin-left:50px; font-size: 30px; "> 率控制算法：</span>
+                            <select id="method-select">
+                                <option value="origin" selected>Baseline</option>
+                                <option value="monax">Monax</option>
+                            </select>
+
+
+                            <span style="margin-left:50px; font-size: 30px; "> 选择 video：</span>
+                            <select id="video-select">
+                                <!--                       <option value ="yes">是 </option>
+                                                      <option value ="no">否 </option> -->
+                            </select>
+
+                        </div>
+                    </li>
+                    <li class="list-group-item" style="font-size: 25px;">
+                        <div class="list-group-div">
+                            <span style="font-size: 30px;"> 使用带宽 trace：</span>
+                            <select style="width:60px" id="trace-enable">
+                                <option value=1 selected>是</option>
+                                <option value=0>否</option>
+                            </select>
+
+                            <div id="trace-select-div">
+                                <span style="margin-left:50px; font-size: 30px; "> 选择 trace：</span>
+                                <select id="trace-select">
+                                    <!--                       <option value ="yes">是 </option>
+                                                          <option value ="no">否 </option> -->
+                                </select>
+                            </div>
+                        </div>
+                    </li>
+
+                    <li class="list-group-item">
+                        <div id='controlDiv' class="list-group-div">
+                            <span style="font-size: 30px;"> 实验运行状态：</span>
+                            <span style="font-size: 25px;" class="label label-default" id='running-state'>未运行</span>
+                            <button type="button" class="control-btn btn btn-primary" id="start-btn">START</button>
+                            <button type="button" class="control-btn btn btn-primary" id="stop-btn">STOP</button>
+                            <button type="button" class="control-btn btn btn-primary" id="download-btn">下载视频</button>
+                            <button type="button" class="control-btn btn btn-primary" id="analyze-btn">计算结果</button>
+                        </div>
+                    </li>
+
+                    <li class="list-group-item">
+                        <div id='agent-div' class="list-group-div">
+                            <div class="input-group input-group-lg" id="time-set-div">
+                                <span class="input-group-addon" style="font-size: 18px;">实验运行时长限制</span>
+                                <input type="time" class="form-control" style="font-size:20px;"
+                                       aria-describedby="basic-addon1" id="time-set">
+                            </div>
+
+                            <span style="margin-left:30px; font-size: 30px;"> 实验进度：</span>
+                            <span style="font-size: 30px;" id='time-left'>0</span>
+                            <span style="font-size: 30px; margin-left:5px">%</span>
+
+                            <div class="progress" style="margin-left: 10px; margin-top:2%; width:40%; height: 40%;">
+                                <div class="progress-bar progress-bar-success progress-bar-striped" role="progressbar"
+                                     aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" id="time-left-bar"
+                                     style="width: 0%;">
+                                    <!-- <span>0%</span> -->
+                                </div>
+                            </div>
+
+                        </div>
+                    </li>
+
+                </ul>
+                <div id="analyze-results">
+
+                    <div class="panel panel-default analyze-res">
+                        <div class="panel-body">
+                            平均 RTT
+                        </div>
+                        <div class="panel-footer" id="RTT"></div>
                     </div>
-                    <span style = "font-size: 30px;"> Agent 连接状态:  </span>
-                    <span style="margin-left: 20px; font-size: 25px;" class="label label-default" id='connect-state'>未连接</span>
-                    <button  type="button" class="control-btn btn btn-primary" id="connect-btn">Connect</button>
-                    <button  type="button" class="control-btn btn btn-danger" id="clean-btn">清理进程</button>
-                  </div>
-                </li>
-                <li class="list-group-item">
-                  <div id='para-div' class="list-group-div">
-                    <span style = "font-size: 30px;" >编码器：</span>
-                    <span class="label label-primary" style="font-size: 25px;" id='codec'>/</span>
 
-                    <span style="margin-left:50px; font-size: 30px; "> 率控制算法：</span>
-                      <select id="method-select">
-                        <option value ="origin" selected>Baseline</option>
-                        <option value ="monax">Monax</option>
-                      </select>
-
-
-                      <span style="margin-left:50px; font-size: 30px; "> 选择 video：</span>
-                      <select id="video-select">
-  <!--                       <option value ="yes">是 </option>
-                        <option value ="no">否 </option> -->
-                      </select>
-
-                  </div>
-                </li>
-                <li class="list-group-item" style="font-size: 25px;">
-                  <div class="list-group-div">
-                    <span style="font-size: 30px;"> 使用带宽 trace：</span>
-                    <select style="width:60px" id="trace-enable">
-                      <option value =1 selected>是</option>
-                      <option value =0>否</option>
-                    </select>
-
-                    <div id="trace-select-div">
-                      <span style="margin-left:50px; font-size: 30px; "> 选择 trace：</span>
-                      <select id="trace-select">
-  <!--                       <option value ="yes">是 </option>
-                        <option value ="no">否 </option> -->
-                      </select>
-                    </div>
-                  </div>
-                </li> 
-
-                <li class="list-group-item">
-                  <div id='controlDiv' class="list-group-div">
-                    <span style="font-size: 30px;"> 实验运行状态：</span>
-                    <span style="font-size: 25px;" class="label label-default" id='running-state'>未运行</span>
-                    <button  type="button" class="control-btn btn btn-primary" id="start-btn">START</button>
-                    <button  type="button" class="control-btn btn btn-primary" id="stop-btn">STOP</button>
-                    <button  type="button" class="control-btn btn btn-primary" id="download-btn">下载视频</button>
-                    <button  type="button" class="control-btn btn btn-primary" id="analyze-btn">计算结果</button>
-                  </div>
-                </li>
-
-                <li class="list-group-item">
-                  <div id='agent-div' class="list-group-div">
-                    <div class="input-group input-group-lg"  id="time-set-div">
-                      <span class="input-group-addon" style = "font-size: 18px;">实验运行时长限制</span>
-                      <input type="time" class="form-control" style = "font-size:20px;" aria-describedby="basic-addon1" id="time-set" >
+                    <div class="panel panel-default analyze-res">
+                        <div class="panel-body">
+                            平均吞吐量
+                        </div>
+                        <div class="panel-footer" id="Throughput"></div>
                     </div>
 
-                    <span style = "margin-left:30px; font-size: 30px;"> 实验进度：</span>
-                    <span style="font-size: 30px;" id='time-left'>0</span>
-                    <span style="font-size: 30px; margin-left:5px">%</span>
-
-                    <div class="progress" style="margin-left: 10px; margin-top:2%; width:40%; height: 40%;">
-                      <div class="progress-bar progress-bar-success progress-bar-striped" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" id="time-left-bar" style="width: 0%;">
-                        <!-- <span>0%</span> -->
-                      </div>
+                    <div class="panel panel-default analyze-res">
+                        <div class="panel-body">
+                            平均端到端时延(帧级别)
+                        </div>
+                        <div class="panel-footer" id="frameDelay"></div>
                     </div>
 
-                  </div>
-                </li>
-
-              </ul>
-              <div id="analyze-results">
-
-                <div class="panel panel-default analyze-res">
-                  <div class="panel-body">
-                    平均 RTT
-                  </div>
-                  <div class="panel-footer" id="RTT"></div>
                 </div>
-
-                <div class="panel panel-default analyze-res">
-                  <div class="panel-body">
-                    平均吞吐量
-                  </div>
-                  <div class="panel-footer" id="Throughput"></div>
-                </div>
-
-                <div class="panel panel-default analyze-res">
-                  <div class="panel-body">
-                    平均端到端时延(帧级别)
-                  </div>
-                  <div class="panel-footer" id="frameDelay"></div>
-                </div>
-
-              </div>
 
             </div>
-          <!-- <h2 style="font-size: 30px;">Real-time video streaming experiment platform</h2> -->
+            <!-- <h2 style="font-size: 30px;">Real-time video streaming experiment platform</h2> -->
         </div>
-      </div>
-  
-      <div id='statsModule'>
+    </div>
+
+    <div id='statsModule'>
         <div class="statsDiv" id="container_bandwidth"></div>
         <div class="statsDiv" id="container_rtt"></div>
         <div class="statsDiv" id="container_e2eDelay"></div>
         <div class="statsDiv" id="container_throughput"></div>
-          <!-- <div class="statsDiv" id="container_e2eDelay"></div> -->
-      </div>
-  
+        <!-- <div class="statsDiv" id="container_e2eDelay"></div> -->
     </div>
 
-    <footer class="panel-footer" id="footer" style="width: 100%; overflow: hidden;">
-      <div class="container">
+</div>
+
+<footer class="panel-footer" id="footer" style="width: 100%; overflow: hidden;">
+    <div class="container">
         <div class="row footer-top" style="text-align: center;">
-         <h1>VStreamTEST</h1>
+            <h1>VStreamTEST</h1>
         </div>
         <hr style="border: 1px solid #C0C0C0; ">
         <div class="row footer-row" style="text-align: center;">
-          <div class="col-sm-3 col-md-3 col-lg-3">
-            <a href="http://gr.xjtu.edu.cn/web/shusenyang/home" style=" color: gray; ">关于Iotdata Lab</a>
-          </div>
-          <div class="col-sm-3 col-md-3 col-lg-3">
-            <a href="#" style=" color: gray;">联系方式</a></li>
-          </div>
-          <div class="col-sm-3 col-md-3 col-lg-3">
-            <a href="#" style=" color: gray;">Github</a></li>
-          </div>
-          <div class="col-sm-3 col-md-3 col-lg-3">
-            <a href="#" style=" color: gray;">特别致谢</a></li>
-          </div>
+            <div class="col-sm-3 col-md-3 col-lg-3">
+                <a href="http://gr.xjtu.edu.cn/web/shusenyang/home" style=" color: gray; ">关于Iotdata Lab</a>
+            </div>
+            <div class="col-sm-3 col-md-3 col-lg-3">
+                <a href="#" style=" color: gray;">联系方式</a></li>
+            </div>
+            <div class="col-sm-3 col-md-3 col-lg-3">
+                <a href="#" style=" color: gray;">Github</a></li>
+            </div>
+            <div class="col-sm-3 col-md-3 col-lg-3">
+                <a href="#" style=" color: gray;">特别致谢</a></li>
+            </div>
         </div>
-      </div>
-    </footer>
-  
-  <script type="text/javascript" src="./js/utils.js?v=0.1" charset="UTF-8"></script>
-  <script type="text/javascript" src="./js/main.js?v=0.1" charset="UTF-8"></script>
+    </div>
+</footer>
+
+<script type="text/javascript" src="./js/utils.js?v=0.1" charset="UTF-8"></script>
+<script type="text/javascript" src="./js/main.js?v=0.1" charset="UTF-8"></script>
 
 </body>
 </html>
