@@ -853,9 +853,6 @@ var chart_bandwidth = Highcharts.chart('container_bandwidth', {
                             bandPointer = 0;
                             var y = bandwidth[bandPointer];
                         }
-
-                        console.log(y);
-
                         series.addPoint([x, y], true, true);
                         // activeLastPointToolip(chart);
                         // data_ready_frameDelay = false;
